@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+        <h4>{{ length_of_blog }}</h4>
+      <legend class="border-bottom mb-4">Get news or blogs from Coingecko</legend>
+      <div class="form-group">
+        {{ form.crypto_name.label(class="form-control-label") }}
+
+        {% if form.crypto_name.errors %}
+            {{ form.crypto_name(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.crypto_name.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.crypto_name(class="form-control form-control-lg") }}
+        {% endif %}
+        </div>
+    </fieldset>
+    <div class="form-group">
+        {{ form.check(class="btn btn-outline-info") }}
+    </div>
+  </form>
+  <br>
+  {% for i in range(headerArr|length) %}
+    <div class="media">
+        <div class="media-body">
+            <h5 class="mt-0"> {{ headerArr[i] }} </h5>
+            {{ paragraphArr[i] }}
+        </div>
+    </div><br>
+  {% endfor %}
+  <br><br>
+{% endblock content %}

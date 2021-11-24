@@ -1,0 +1,6 @@
+env
+scrapping-jupyter.ipynb
+.ipynb_checkpoints
+.idea
+geckodriver.exe
+geckodriver.log
